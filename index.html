@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abid +1 broow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #ff4500;
+        }
+        p {
+            font-size: 18px;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff4500;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #ff6347;
+        }
+        #gif-cake {
+            width: 300px;
+            display: block;
+            margin: 0 auto;
+        }
+        #video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        #photo {
+            position: absolute;
+            top: 65%;
+            left: 50%;
+            transform: translateX(-5%);
+            width: 60%;
+            max-width: 200px;
+            border-radius: 20px;
+            border: 5px solid #fff;
+        }
+        #content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        #initial-view, #cake-view, #final-view {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Halaman Pertama -->
+    <div class="container" id="initial-view">
+        <h1>HBD abang abid 🤟🏻🤗!</h1>
+        <button class="button" id="show-cake">Lihat Kue</button>
+        <audio id="background-music" autoplay>
+            <source src="fahri.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <!-- Halaman Kue -->
+    <div class="container" id="cake-view">
+        <img id="gif-cake" src="gif1.gif" alt="Kue">
+        <p>cepat di klik!.goooo broo!</p>
+        <button class="button" id="blow-candle">Tiup Lilin</button>
+    </div>
+
+    <!-- Halaman Kedua -->
+    <div id="final-view">
+        <video id="video-bg" src="hbd.mp4" autoplay loop>
+            Your browser does not support the video tag.
+        </video>
+        <img id="photo" src="1234.jpg" alt="Foto Teman">
+        <div id="content">
+
+            
+        </div>
+        <h1>🎉 Tambah Umur cees! 🎉</h1>
+        <h4>nambah tuo be kawan ni<h5>Selamat +1, ABID!</h5><h5>Be doa dewek ee jgn manja</h5><h6>-- Dari: R.F.R</h6>
+    </div>
+
+    <script>
+        // Tampilkan halaman pertama saat muat
+        document.getElementById('initial-view').style.display = 'block';
+        document.getElementById('cake-view').style.display = 'none';
+        document.getElementById('final-view').style.display = 'none';
+
+        // Aksi ketika tombol "Lihat Kue" diklik
+        document.getElementById('show-cake').addEventListener('click', function() {
+            var music = document.getElementById('background-music');
+            if (music.paused) {
+                music.play();
+            }
+            document.getElementById('initial-view').style.display = 'none';
+            document.getElementById('cake-view').style.display = 'block';
+        });
+
+        // Aksi ketika tombol "Tiup Lilin" diklik
+        document.getElementById('blow-candle').addEventListener('click', function() {
+            document.getElementById('gif-cake').style.display = 'none';
+            document.getElementById('blow-candle').style.display = 'none';
+            
+            var clickHereButton = document.createElement('button');
+            clickHereButton.className = 'button';
+            clickHereButton.textContent = 'Klik lihat';
+            clickHereButton.id = 'click-here';
+            document.querySelector('#cake-view').appendChild(clickHereButton);
+            
+            clickHereButton.addEventListener('click', function() {
+                document.getElementById('cake-view').style.display = 'none';
+                document.getElementById('final-view').style.display = 'block';
+                
+                var backgroundMusic = document.getElementById('background-music');
+                if (!backgroundMusic.paused) {
+                    backgroundMusic.pause();
+                }
+
+                // Pastikan suara video aktif
+                var videoBg = document.getElementById('video-bg');
+                videoBg.muted = false;  // Menghidupkan suara video
+                videoBg.play();  // Memutar video
+            });
+        });
+    </script>
+</body>
+</html>
